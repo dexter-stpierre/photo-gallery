@@ -14,7 +14,7 @@
   <div class="container" ng-controller='GalleryController as gallery'>
     <h1>Dexter's Gallery</h1>
     <div class="pictures row">
-      <div ng-repeat="photo in gallery.photos" class="col-md-4">
+      <div ng-repeat="photo in gallery.photos" class="col-md-4 photoDiv">
         <div class="photo">
           <!-- <p ng-click="gallery.toggle(photo)">{{photo.description}}</p> -->
           <p class="description photo" ng-show="photo.descVisible" ng-click="gallery.toggle(photo)">{{photo.description}}</p>
@@ -23,7 +23,12 @@
         </div>
         <button ng-click="gallery.likeButton(photo)" type="button" class="btn btn-default btn-sm">Like</button>
         <span>{{photo.likes}} people like this!</span>
-        <input type="text" ng-model="comment"> <button ng-click="gallery.addComment(comment, photo)">Submit</button>
+        <p>Viewed {{photo.timesViewed}} times!</p>
+        <input type="text" ng-model="newComment"> <button ng-click="gallery.addComment(newComment, photo)">Submit</button>
+        <button ng-model="showCom" ng-click="gallery.toggleComments(photo)">Toggle comments</button>
+        <div class="comments" ng-if="photo.showComments">
+          <p ng-repeat="comment in photo.comments">{{comment}}</p>
+        </div>
       </div>
     </div>
   </div>
