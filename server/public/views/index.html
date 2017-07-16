@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <!-- <link rel="stylesheet" href="/vendors/bootstrap-theme.css">
-    <link rel="stylesheet" href="/vendors/bootstrap.css"> -->
-    <link rel="stylesheet" href="/views/main.css">
-    <script src="/vendors/angular.js" charset="utf-8"></script>
-    <script src="/vendors/jquery.js" charset="utf-8"></script>
-    <script src="/scripts/client.js" charset="utf-8"></script>
-  </head>
-  <body ng-app="myApp">
-    <div class="container" ng-controller='GalleryController as gallery'>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="/vendors/bootstrap-theme.css">
+  <link rel="stylesheet" href="/vendors/bootstrap.css">
+  <link rel="stylesheet" href="/views/main.css">
+  <script src="/vendors/angular.js" charset="utf-8"></script>
+  <!-- <script src="/vendors/jquery.js" charset="utf-8"></script> -->
+  <script src="/scripts/client.js" charset="utf-8"></script>
+</head>
+<body ng-app="myApp">
+  <div class="container" ng-controller='GalleryController as gallery'>
+    <h1>Dexter's Gallery</h1>
+    <div class="pictures row">
+      <div ng-repeat="photo in gallery.photos" class="col-md-4">
+        <p ng-hide="photo.photoVisible" ng-click="gallery.toggle(photo)">{{photo.description}}</p>
+        <img ng-show="photo.photoVisible" ng-click="gallery.toggle(photo)" ng-src="images/{{photo.link}}" alt="" class="img-responsive center-block">
+        <button ng-click="gallery.likeButton(photo)" type="button" class="btn btn-default btn-sm">Like</button>
+      </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
