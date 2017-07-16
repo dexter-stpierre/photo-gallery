@@ -1,4 +1,18 @@
 .img-responsive{
   max-height: 300px;
   /*margin: 0 auto;*/
+  z-index: -1;
+}
+ .description{
+   position: absolute;
+   background-color: rgba(255,255,255,0.6);
+   /*background-opacity: .3;*/
+   text-align: center;
+   font-size: 30px;
+ }
+.photo, .description{
+  margin: 0;
+  height: 300px;
+  width: 100%;
+  right: 0;
 }

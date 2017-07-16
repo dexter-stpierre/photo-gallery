@@ -15,9 +15,15 @@
     <h1>Dexter's Gallery</h1>
     <div class="pictures row">
       <div ng-repeat="photo in gallery.photos" class="col-md-4">
-        <p ng-hide="photo.photoVisible" ng-click="gallery.toggle(photo)">{{photo.description}}</p>
-        <img ng-show="photo.photoVisible" ng-click="gallery.toggle(photo)" ng-src="images/{{photo.link}}" alt="" class="img-responsive center-block">
+        <div class="photo">
+          <!-- <p ng-click="gallery.toggle(photo)">{{photo.description}}</p> -->
+          <p class="description photo" ng-show="photo.descVisible" ng-click="gallery.toggle(photo)">{{photo.description}}</p>
+          <img ng-click="gallery.toggle(photo)" ng-src="images/{{photo.link}}" alt="" class="img-responsive center-block">
+          <!-- <img ng-show="photo.photoVisible" ng-click="gallery.toggle(photo)" ng-src="images/{{photo.link}}" alt="" class="img-responsive center-block"> -->
+        </div>
         <button ng-click="gallery.likeButton(photo)" type="button" class="btn btn-default btn-sm">Like</button>
+        <span>{{photo.likes}} people like this!</span>
+        <input type="text" ng-model="comment"> <button ng-click="gallery.addComment(comment, photo)">Submit</button>
       </div>
     </div>
   </div>
