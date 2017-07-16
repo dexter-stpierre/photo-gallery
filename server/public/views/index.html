@@ -10,22 +10,30 @@
   <!-- <script src="/vendors/jquery.js" charset="utf-8"></script> -->
   <script src="/scripts/client.js" charset="utf-8"></script>
 </head>
+<!-- add angular -->
 <body ng-app="myApp">
+  <!-- add controller  -->
   <div class="container" ng-controller='GalleryController as gallery'>
     <h1>Dexter's Gallery</h1>
     <div class="pictures row">
+      <!-- add all photos to DOM-->
       <div ng-repeat="photo in gallery.photos" class="col-md-4 photoDiv">
         <div class="photo">
-          <!-- <p ng-click="gallery.toggle(photo)">{{photo.description}}</p> -->
-          <p class="description photo" ng-show="photo.descVisible" ng-click="gallery.toggle(photo)">{{photo.description}}</p>
-          <img ng-click="gallery.toggle(photo)" ng-src="images/{{photo.link}}" alt="" class="img-responsive center-block">
-          <!-- <img ng-show="photo.photoVisible" ng-click="gallery.toggle(photo)" ng-src="images/{{photo.link}}" alt="" class="img-responsive center-block"> -->
+          <!-- hide description. toggles when this or the photo is clicked on. background is slighty transparent so the photo doesn't disappear -->
+          <p class="description photo" ng-show="photo.descVisible" ng-click="gallery.toggleDesc(photo)">{{photo.description}}</p>
+          <!-- toggles description when clicked on -->
+          <img ng-click="gallery.toggleDesc(photo)" ng-src="images/{{photo.link}}" alt="" class="img-responsive center-block">
         </div>
+        <!-- displays the number of likes and adds one when clicked on -->
         <button ng-click="gallery.likeButton(photo)" type="button" class="btn btn-default btn-sm">Like</button>
         <span>{{photo.likes}} people like this!</span>
+        <!-- displays the number of times the description has been viewed -->
         <p>Viewed {{photo.timesViewed}} times!</p>
+        <!-- adds comment to picture -->
         <input type="text" ng-model="newComment"> <button ng-click="gallery.addComment(newComment, photo)">Submit</button>
+        <!-- toggles comments -->
         <button ng-model="showCom" ng-click="gallery.toggleComments(photo)">Toggle comments</button>
+        <!-- div for adding all comments -->
         <div class="comments" ng-if="photo.showComments">
           <p ng-repeat="comment in photo.comments">{{comment}}</p>
         </div>
