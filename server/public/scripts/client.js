@@ -38,15 +38,22 @@ myApp.controller('GalleryController', function(){
     if(photo.descVisible){
       photo.timesViewed +=1;
     }
-  }
+  };
   //add comment to array of comments on picture
   gallery.addComment = function(comment, photo){
     photo.comments.push(comment);
-  }
+  };
   //toggle the display of comment son specific picture
   gallery.toggleComments = function(photo){
     photo.showComments = !photo.showComments;
-  }
+  };
+  //delete comment
+  gallery.deleteComment = function(index, photo){
+    console.log(index);
+    console.log(photo);
+    console.log(photo.comments);
+    photo.comments.splice(index, 1);
+  };
   //log the contoller
   console.log(gallery);
 })

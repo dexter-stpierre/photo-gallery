@@ -34,8 +34,8 @@
         <!-- toggles comments -->
         <button ng-model="showCom" ng-click="gallery.toggleComments(photo)">Toggle comments</button>
         <!-- div for adding all comments -->
-        <div class="comments" ng-if="photo.showComments">
-          <p ng-repeat="comment in photo.comments">{{comment}}</p>
+        <div class="comments" >
+          <p ng-repeat="comment in photo.comments" ng-if="photo.showComments">{{comment}} <button type="button" ng-click="gallery.deleteComment($index, photo)">Delete</button></p>
         </div>
       </div>
     </div>
