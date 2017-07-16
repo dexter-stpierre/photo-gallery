@@ -10,6 +10,7 @@ This is a project that displays picture and allows you to view a description of 
 
 * HTML
 * CSS
+* Bootstrap
 * JavaScript
 * Angular.js
 * Node.js
