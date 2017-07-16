@@ -49,11 +49,8 @@ myApp.controller('GalleryController', function(){
   };
   //delete comment
   gallery.deleteComment = function(index, photo){
-    console.log(index);
-    console.log(photo);
-    console.log(photo.comments);
     photo.comments.splice(index, 1);
   };
   //log the contoller
-  console.log(gallery);
+  // console.log(gallery);
 })
