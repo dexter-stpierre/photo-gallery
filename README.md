@@ -17,7 +17,7 @@ This is a project that displays picture and allows you to view a description of 
 * Express.js
 * Heroku
 
-###To-Dos:
+### To-Dos:
 
 * Add additional styling
 * Add ability to link to additional pictures
