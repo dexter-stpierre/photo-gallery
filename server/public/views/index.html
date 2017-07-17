@@ -30,12 +30,12 @@
         <!-- displays the number of times the description has been viewed -->
         <p>Viewed {{photo.timesViewed}} times!</p>
         <!-- adds comment to picture -->
-        <input type="text" ng-model="newComment"> <button ng-click="gallery.addComment(newComment, photo)">Submit</button>
+        <input type="text" ng-model="newComment"> <button ng-click="gallery.addComment(newComment, photo)" class="btn btn-default">Submit</button>
         <!-- toggles comments -->
-        <button ng-model="showCom" ng-click="gallery.toggleComments(photo)">Toggle comments</button>
+        <button ng-model="showCom" ng-click="gallery.toggleComments(photo)" class="btn btn-default">Toggle comments</button>
         <!-- div for adding all comments -->
         <div class="comments" >
-          <p ng-repeat="comment in photo.comments" ng-if="photo.showComments">{{comment}} <button type="button" ng-click="gallery.deleteComment($index, photo)">Delete</button></p>
+          <p ng-repeat="comment in photo.comments" ng-if="photo.showComments">{{comment}} <button type="button" ng-click="gallery.deleteComment($index, photo)" class="btn btn-default">Delete</button></p>
         </div>
       </div>
     </div>
